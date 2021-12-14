@@ -12,8 +12,6 @@ const errorHandler = (err, req, res, next) => {
 
   errorResponse(res, err.message, err.statusCode || 500, {
     errorType: err.errorType,
-    step: err.step,
-    product: err.product,
   });
 };
 

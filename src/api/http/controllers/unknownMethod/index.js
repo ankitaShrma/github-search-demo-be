@@ -1,16 +1,17 @@
-const { errorResponse } = require("../../../../commons/response");
 const config = require("../../../../config");
 
-const methodNotAllowed = (req, res) => {
+const methodNotAllowed = (req, res, next) => {
   const message = "methodNotAllowed";
-  const error = config.error[message](req.method) || message;
-  errorResponse(res, error, 405);
+  const error = new Error(config.error[message](req.method) || message);
+  error.statusCode = 405;
+  next(error);
 };
 
-const notFound = (req, res) => {
+const notFound = (req, res, next) => {
   const message = "notFound";
-  const error = config.error[message] || message;
-  errorResponse(res, error, 404);
+  const error = new Error(config.error[message] || message);
+  error.statusCode = 404;
+  next(error);
 };
 
 module.exports = { methodNotAllowed, notFound };

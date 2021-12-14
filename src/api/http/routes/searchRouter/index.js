@@ -1,4 +1,4 @@
-const searchController = require("../../../controllers/githubSearch");
+const searchController = require("../../controllers/githubSearch");
 
 const express = require("express");
 const searchRouter = express.Router();

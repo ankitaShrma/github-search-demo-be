@@ -33,6 +33,8 @@ Node.js
 
     - Via Docker: use `docker-compose` command. Note that it uses env file so make sure the env file is properly setup (Check env.example for instructions)
 
+    This project uses unauthenticated apis due to which results may not be as expected. When your search query requests multiple resources, the response will only contain the resources that you have access to and will not provide an error message listing the resources that were not returned.
+
 
 ### Run Project
 
